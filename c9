@@ -20,7 +20,7 @@ server {
         root /home/ubuntu/workspace/web;
 
         # Look for index files in this order
-        #index index.html index.htm index.php;
+        index app.php index.html index.htm index.php;
 
         # You know, weird things always happening around symbols.
         charset utf-8;
