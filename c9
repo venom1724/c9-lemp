@@ -17,10 +17,10 @@ server {
         server_name *.c9users.io;
 
         # Home directoy, our server workspace
-        root /home/ubuntu/workspace;
+        root /home/ubuntu/workspace/web;
 
         # Look for index files in this order
-        index index.html index.htm index.php;
+        #index index.html index.htm index.php;
 
         # You know, weird things always happening around symbols.
         charset utf-8;
@@ -28,6 +28,13 @@ server {
         # Allow to upload more buffer
         client_max_body_size 32M;
 
+        #location / {
+        #   try_files $uri @rewriteapp;
+        #}
+
+        #location @rewriteapp {
+        #       rewrite ^(.*)$ /app.php/$1 last;
+        #}
         # Only one location is needed. The root.
         location / {
             # Default: Parameters at the end for rewriting.
@@ -38,13 +45,13 @@ server {
             # try_files $uri $uri/ /index.php?q=$uri&$args;
 
             # Yet another default
-            try_files $uri $uri/ /index.php$is_args$args;
+            try_files $uri $uri/ /app.php$is_args$args;
         }
 
         location = /favicon.ico { access_log off; log_not_found off; }
         location = /robots.txt  { access_log off; log_not_found off; }
 
-        access_log off;
+        access_log /home/ubuntu/access.log;
         error_log  /home/ubuntu/error.log notice;
 
         error_page 404 /index.php;
@@ -53,10 +60,12 @@ server {
         location ~ \.php$ {
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
             # We love socks, no callbacks.
-            fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+            fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
             fastcgi_index index.php;
             include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+            fastcgi_param HTTPS off;
         }
     }
+    
