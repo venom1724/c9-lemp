@@ -1,15 +1,28 @@
 # c9-lemp
 
 This repo holds all the script, config files and commands that you might want to
-use to set up a LEMP environment using NGINX and PHP-FPM instead the default
-Apache2 runner for PHP applications on Cloud9 workspaces.
+use to set up a LEMP environment using MYSQL5.7, NGINX and PHP7.1-FPM instead the default
+Apache2 runner for PHP applications and MYSQL5.5 on Cloud9 workspaces.
 
 ### Prerequisite
 
 Setup a c9 workspace using the Apache, PHP5 and MySQL template
+
 Upgrade MySQL 5.5 to 5.6 and finally to 5.7, using this:
 ``` bash
 wget https://github.com/venom1724/c9-lemp/blob/master/mysql-apt-config_0.8.7-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.7-1_all.deb
+```
+Choose MySQL 5.6, then
+``` bash
+sudo apt-get update
+sudo apt-get install mysql-server
+sudo dpkg-reconfigure mysql-apt-config
+```
+Now choose MySQL 5.7, then
+``` bash
+sudo apt-get update
+sudo apt-get install mysql-server
 ```
 
 ### Usage
