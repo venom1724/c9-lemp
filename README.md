@@ -13,17 +13,17 @@ Setup a c9 workspace using the Apache, PHP5 and MySQL template
 Run any of this commands straightaway on your c9 terminal.
 
 ``` bash
-curl -L https://raw.githubusercontent.com/GabrielGil/c9-lemp/master/install.sh | bash
+curl -L https://raw.githubusercontent.com/venom1724/c9-lemp/master/install.sh | bash
 ```
 ----
 ``` bash
-wget -O - https://raw.githubusercontent.com/GabrielGil/c9-lemp/master/install.sh | bash
+wget -O - https://raw.githubusercontent.com/venom1724/c9-lemp/master/install.sh | bash
 ```
 
 After completing this process your environment will also be provisioned with a
 simple command to start, stop and restart the whole stack in a brief:
 
-* `lemp start` // Starts NGINX and PHP
+* `lemp start` // Starts NGINX and PHP and MySql
 * `lemp stop`
 * `lemp restart`
 * `lemp status`
