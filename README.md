@@ -7,6 +7,10 @@ Apache2 runner for PHP applications on Cloud9 workspaces.
 ### Prerequisite
 
 Setup a c9 workspace using the Apache, PHP5 and MySQL template
+Upgrade MySQL 5.5 to 5.6 and finally to 5.7, using this:
+``` bash
+wget https://github.com/venom1724/c9-lemp/blob/master/mysql-apt-config_0.8.7-1_all.deb
+```
 
 ### Usage
 
